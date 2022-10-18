@@ -51,7 +51,7 @@ to quickly create a Cobra application.`,
 		}
 		// todo versionとaliasを考慮する必要がある
 		for _, v := range resp.Functions {
-			if utils.Contains(deprecated_runtimes, string(*&v.Runtime)) == true {
+			if utils.Contains(deprecated_runtimes, string(*&v.Runtime)) {
 				table.Append([]string{*v.FunctionName, string(*&v.Runtime)})
 			}
 		}

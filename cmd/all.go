@@ -11,9 +11,9 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// listCmd represents the list command
-var listCmd = &cobra.Command{
-	Use:   "list",
+// allCmd represents the all command
+var allCmd = &cobra.Command{
+	Use:   "all",
 	Short: "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
@@ -31,7 +31,6 @@ to quickly create a Cobra application.`,
 		if err != nil {
 			log.Fatalf("%v", err)
 		}
-		// todo versionとaliasを考慮する必要がある
 		for _, v := range resp.Functions {
 			table.Append([]string{*v.FunctionName, string(*&v.Runtime)})
 		}
@@ -40,5 +39,5 @@ to quickly create a Cobra application.`,
 }
 
 func init() {
-	rootCmd.AddCommand(listCmd)
+	rootCmd.AddCommand(allCmd)
 }

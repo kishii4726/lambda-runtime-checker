@@ -1,0 +1,40 @@
+name: Go Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        type: string
+        required: true
+        description: "release version. e.g. 0.0.1"
+
+
+jobs:
+  build:
+    timeout-minutes: 5
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.19
+
+      - name: Build
+        run: |
+          mkdir -p artifacts
+          GOOS=linux GOARCH=amd64 go build -o lambda-runtime-checker
+          zip -r lambda-runtime-checker_v${{ github.event.inputs.release_tag }}_linux_amd64.zip lambda-runtime-checker
+          mv lambda-runtime-checker_v${{ github.event.inputs.release_tag }}_linux_amd64.zip artifacts
+          GOOS=darwin GOARCH=amd64 go build -o lambda-runtime-checker
+          zip -r lambda-runtime-checker_v${{ github.event.inputs.release_tag }}_darwin_amd64.zip lambda-runtime-checker
+          mv lambda-runtime-checker_v${{ github.event.inputs.release_tag }}_darwin_amd64.zip artifacts
+          GOOS=darwin GOARCH=arm64 go build -o lambda-runtime-checker
+          zip -r lambda-runtime-checker_v${{ github.event.inputs.release_tag }}_darwin_arm64.zip lambda-runtime-checker
+          mv lambda-runtime-checker_v${{ github.event.inputs.release_tag }}_darwin_arm64.zip artifacts
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: v${{ github.event.inputs.release_tag }}-build-artifacts
+          path: artifacts/*

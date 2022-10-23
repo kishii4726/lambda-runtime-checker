@@ -4,7 +4,7 @@ Tool to investigate runtime of Lambda functions.
 ## Install
 ### Mac(amd64)
 ```
-$ LAMBDA_RUNTIME_CHECKER_VERSION=0.0.1
+$ LAMBDA_RUNTIME_CHECKER_VERSION=0.0.2
 $ curl -OL https://github.com/kishii4726/lambda-runtime-checker/releases/download/v${LAMBDA_RUNTIME_CHECKER_VERSION}/lambda-runtime-checker_v${LAMBDA_RUNTIME_CHECKER_VERSION}_darwin_amd64.zip
 
 $ unzip lambda-runtime-checker_v${LAMBDA_RUNTIME_CHECKER_VERSION}_darwin_amd64.zip lambda-runtime-checker
@@ -14,7 +14,7 @@ $ sudo cp lambda-runtime-checker /usr/local/bin
 
 ### Mac(arm64)
 ```
-$ LAMBDA_RUNTIME_CHECKER_VERSION=0.0.1
+$ LAMBDA_RUNTIME_CHECKER_VERSION=0.0.2
 $ curl -OL https://github.com/kishii4726/lambda-runtime-checker/releases/download/v${LAMBDA_RUNTIME_CHECKER_VERSION}/lambda-runtime-checker_v${LAMBDA_RUNTIME_CHECKER_VERSION}_darwin_arm64.zip
 
 $ unzip lambda-runtime-checker_v${LAMBDA_RUNTIME_CHECKER_VERSION}_darwin_arm64.zip lambda-runtime-checker
@@ -24,7 +24,7 @@ $ sudo cp lambda-runtime-checker /usr/local/bin
 
 ### Linux
 ```
-$ LAMBDA_RUNTIME_CHECKER_VERSION=0.0.1
+$ LAMBDA_RUNTIME_CHECKER_VERSION=0.0.2
 $ curl -OL https://github.com/kishii4726/lambda-runtime-checker/releases/download/v${LAMBDA_RUNTIME_CHECKER_VERSION}/lambda-runtime-checker_v${LAMBDA_RUNTIME_CHECKER_VERSION}_linux_amd64.zip
 
 $ unzip lambda-runtime-checker_v${LAMBDA_RUNTIME_CHECKER_VERSION}_linux_amd64.zip lambda-runtime-checker

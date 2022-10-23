@@ -68,6 +68,7 @@ $ lambda-runtime-checker runtime python3.9
 ### Search for Lambda functions using deprecated runtimes
 ```
 $ lambda-runtime-checker deprecated
+References->https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html
 +---------------+------------+
 | FUNCTION NAME |  RUNTIME   |
 +---------------+------------+

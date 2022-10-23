@@ -49,7 +49,7 @@ var deprecatedCmd = &cobra.Command{
 				table.Append([]string{*v.FunctionName, string(*&v.Runtime)})
 			}
 		}
-		fmt.Print("Deprecated runtimes.\nReferences->https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\n")
+		fmt.Println("References->https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html")
 		table.Render()
 	},
 }

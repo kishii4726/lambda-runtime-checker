@@ -4,6 +4,7 @@ import (
 	"context"
 	"lambda-runtime-checker/pkg/config"
 	"lambda-runtime-checker/pkg/table"
+	"lambda-runtime-checker/pkg/utils"
 	"log"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
@@ -13,6 +14,7 @@ import (
 
 var runtimeCmd = &cobra.Command{
 	Use:   "runtime",
+	Args:  cobra.MinimumNArgs(1),
 	Short: "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
@@ -31,7 +33,9 @@ to quickly create a Cobra application.`,
 			log.Fatalf("%v", err)
 		}
 		for _, v := range resp.Functions {
-			table.Append([]string{*v.FunctionName, string(*&v.Runtime)})
+			if utils.Contains(args, string(*&v.Runtime)) == true {
+				table.Append([]string{*v.FunctionName, string(*&v.Runtime)})
+			}
 		}
 		table.Render()
 	},

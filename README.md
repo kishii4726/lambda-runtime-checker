@@ -51,7 +51,6 @@ $ lambda-runtime-checker all
 +---------------+------------+
 | test6         | python3.8  |
 +---------------+------------+
-
 ```
 
 ### Search for Lambda functions that use the specified runtime

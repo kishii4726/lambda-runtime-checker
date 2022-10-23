@@ -49,7 +49,6 @@ to quickly create a Cobra application.`,
 		if err != nil {
 			log.Fatalf("%v", err)
 		}
-		// todo versionとaliasを考慮する必要がある
 		for _, v := range resp.Functions {
 			if utils.Contains(deprecated_runtimes, string(*&v.Runtime)) == true {
 				table.Append([]string{*v.FunctionName, string(*&v.Runtime)})
@@ -62,14 +61,4 @@ to quickly create a Cobra application.`,
 
 func init() {
 	rootCmd.AddCommand(deprecatedCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// deprecatedCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// deprecatedCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
